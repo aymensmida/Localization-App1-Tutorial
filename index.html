@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Localization </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lustria&amp;family=PT+Sans+Narrow:wght@400;700&amp;display=swap"
+        rel="stylesheet">
+</head>
+<link rel="stylesheet" href="./css/style.css">
+
+<body>
+    <div class="container-fluid">
+        <div class="row border mt-2 ml-1 mr-1 d-flex align-items-center shadow">
+            <div class="col-md-3 p-2 text-left">
+                <img src="./images/header-l8.png" height="80px">
+
+            </div>
+            <div class="col-md-6 text-center">
+                <h2 class=" first-title">Laravel Localization </h2>
+            </div>
+            <div class="col-md-3 p-2 text-right">
+                <img src="./images/header.png" alt="" height="80px">
+
+            </div>
+
+        </div>
+        <div class="row mt-5 mb-2 ml-md-5 mr-md-5">
+            <div class="col-lg-12">
+                <H2>Working with translation files</H2>
+                <p>Localization is the process of adapting a website or application to a particular language, culture,
+                    and region. Laravel is a popular PHP web framework that provides built-in support for localizing
+                    applications.</p>
+                <p>So, in Laravel, just like in many other frameworks, you will store translations for different
+                    languages in separate files. There are two ways to organize Laravel translation files:
+                </p>
+                <ul>
+                    <li>
+                        <p>
+                            An old approach which involves storing your files under the following path:
+                            resources/lang/{en,fr,ru}/{myfile.php}.
+
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A new approach of having resources/lang/{fr.json, ru.json} files.
+
+                        </p>
+                    </li>
+
+                </ul>
+                <div class=" alert alert-warning">
+                    <p>Our example will be with the second approach</p>
+                </div>
+                <h2 class="Title">I-Install Laravel 8</h2>
+
+
+            </div>
+
+        </div>
+        <div class="row ml-md-5 mr-md-5">
+            <div class="col-lg-12">
+                <p>Open terminal further run below command to manifest a new laravel project, ignore this step if
+                    project is already installed</p>
+            </div>
+            <div class="col-lg-8">
+
+                <div class="cmd  " id="cmd-1">
+                    <pre
+                        class="pre-cmd d-flex align-items-center pl-2">composer create-project laravel/laravel:^8.0 laravel-Localization </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-1')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-2 mb-2 ml-md-5 mr-md-5">
+            <div class="col-lg-12">
+
+                <h2 class="Title"> II- Translation files</h2>
+                <p>Now create <span style="color:rgb(255, 78, 2)"> resources/lang/en.json resources/lang/fr.json
+                        resources/lang/ar.json</span>
+
+                </p>
+
+            </div>
+
+        </div>
+        <div class="row ml-md-5 mr-md-5">
+
+            <div class="col-lg-8">
+
+                <div class="cmd  " id="cmd-2">
+                    <pre
+                        class="pre-cmd d-flex align-items-center pl-2">touch resources/lang/en.json resources/lang/fr.json resources/lang/ar.json</pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-2')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <span class="bg-success text-white">en.json</span>
+                <div class="cmd  " id="cmd-2_1">
+
+                    <pre class="pre-cmd d-flex align-items-center pl-2">
+                        {
+                            "salutation":"welcome",
+                            "object":"Translation Test",
+                            "result":"Translation completed successfully"
+                        }
+                    </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-2_1')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <span class="bg-success text-white">fr.json</span>
+                <div class="cmd  " id="cmd-2_2">
+
+                    <pre class="pre-cmd d-flex align-items-center pl-2">
+                        {
+                            "salutation":"Bienvenue",
+                            "object":"Test de traduction",
+                            "result":"Traduction terminée avec succès"
+                        }
+                    </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-2_2')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <span class="bg-success text-white">ar.json</span>
+                <div class="cmd  " id="cmd-2_3">
+
+                    <pre class="pre-cmd d-flex align-items-center pl-2">
+                        {
+                            "salutation":"مرحبا",
+                            "object":"تجربة الترجمة",
+                            "result":"تمت الترجمة بنجاح"
+                        }
+                        
+                    </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-2_3')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-2 mb-3 ml-md-5 mr-md-5">
+            <div class="col-md-11">
+
+                <h2 class="Title">III-Create Routes</h2>
+                <p>Open the <span class="text-danger font-weight-bold"> routes/web.php </span>file and define the
+                    following route:</p>
+
+
+            </div>
+            <div class="col-md-10">
+                <div class="cmd  " id="cmd-3">
+                    <pre class="pre-cmd  align-items-center pl-2">                        &lt;?php
+
+                        use Illuminate\Support\Facades\Route;
+                         <span class="text-success">
+                            /*
+                        |--------------------------------------------------------------------------
+                        | Web Routes
+                        |--------------------------------------------------------------------------
+                        
+                        */</span>
+                        
+                        Route::get('BarCode', [App\Http\Controllers\BarCodeController::class, 'generate'])->name('generateBC');
+
+                        </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-3')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+        <div class="row mt-2 mb-3 ml-md-5 mr-md-5">
+            <div class="col-md-11">
+
+                <h2 class="Title">IV-Middleware </h2>
+
+
+
+            </div>
+            <div class="col-lg-8">
+
+                <div class="cmd  " id="cmd-21">
+                    <pre class="pre-cmd d-flex align-items-center pl-2">php artisan make:middleware Localization</pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-21')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="cmd  " id="cmd-4">
+                    <pre class="pre-cmd  align-items-center pl-2">                        &lt;?php
+
+
+                        namespace App\Http\Middleware;
+
+                        use Closure;
+                        use Illuminate\Http\Request;
+                        use Session;
+                        use Illuminate\Support\Facades\App;
+                        class Localization
+                    {
+                      public function handle(Request $request, Closure $next)
+                       {
+                        if (Session::has('locale')) {
+                        App::setLocale(Session::get('locale'));
+                        }
+                       return $next($request);
+                        }
+                     }
+
+                        </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-4')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+
+
+                <p>Since we need this operation to be run on every request, we also need to add it to the default
+                    middleware stack at <span class="bg-warning">app/http/Kernel.php</span> for the web middleware group
+                </p>
+            </div>
+
+            <div class="col-md-10">
+                <img src="./images/kernel.png" class="img-fluid">
+            </div>
+
+        </div>
+        <div class="row mt-2 mb-3 ml-md-5 mr-md-5">
+            <div class="col-md-11">
+
+                <h2 class="Title">V-Add Blade Files :</h2>
+
+                <p>Now open the welcome file <span class="text-primary">resources/views/welcome.blade.php</span> and add
+                    the code given below</p>
+
+            </div>
+            <div class="col-md-12">
+                <div class="cmd  " id="cmd-5">
+                    <pre class="pre-cmd  align-items-center pl-2">
+
+
+
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Laravel Localization &lt;/title&gt;
+                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+                                integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"&gt;
+                            &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+                                integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+                                crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;
+                            &lt;link
+                                href="https://fonts.googleapis.com/css2?family=Lustria&amp;family=PT+Sans+Narrow:wght@400;700&amp;display=swap"
+                                rel="stylesheet"&gt;
+                        
+                        &lt;body&gt;
+                            &lt;div class="container-fluid"&gt;
+                                &lt;div class="row border mt-2 ml-1 mr-1 d-flex align-items-center shadow"&gt;
+                                    &lt;div class="col-md-3 p-2 text-left"&gt;
+                                        &lt;img src="{{ asset('header-l8.png') }}" height="80px"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-6 text-center"&gt;
+                                        &lt;h2 class=" first-title"&gt;Laravel Localization &lt;/h2&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-3 p-2 text-right"&gt;
+                                        &lt;img src="{{ asset('header.png') }}" alt="" height="80px"&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class="row"&gt;
+                                    &lt;div class="col-md-8 mx-auto text-center"&gt;
+                                        &lt;div class="btn-group mt-5 mb-2 " role="group" aria-label="Basic example"&gt;
+                                            &lt;a href="{{ route('switch_language', 'en') }}" class="btn btn-primary ml-1 mr-1"&gt;En&lt;/a&gt;
+                                            &lt;a href="{{ route('switch_language', 'ar') }}" class="btn btn-primary ml-1 mr-1"&gt;عربي&lt;/a&gt;
+                                            &lt;a href="{{ route('switch_language', 'fr') }}" class="btn btn-primary ml-1 mr-1"&gt;Fr&lt;/a&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="card shadow mt-3"&gt;
+                                            &lt;h1&gt;
+                                                {{ __('salutation') }}
+                                            &lt;/h1&gt;
+                                            &lt;h2&gt;
+                                                {{ __('object') }}
+                                            &lt;/h2&gt;
+                                            &lt;h2&gt;
+                                                {{ __('result') }}
+                                            &lt;/h2&gt;
+                                        &lt;/div&gt;
+                        
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/body&gt;
+                        &lt;/head&gt;
+                        
+                        &lt;/html&gt;
+                        
+
+                        </pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-5')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+
+                <p>Now you have to run the application using this command</p>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="cmd " id="cmd-23">
+                    <pre class="pre-cmd d-flex align-items-center pl-2">php artisan serve</pre>
+                    <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
+                        onclick="CopyToClipboard('cmd-23')" data-original-title="Copy to Clipboard">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+
+            </div>
+            <p> Finaly,open the below URL on your browser <a href="http://localhost:8000/"
+                    target="_blank">http://localhost:8000/</a></p>
+
+            <div class="py-4 px-3 alert-success shadow">
+                <h5>You can download code from git: <a target="_blank"
+                        href="https://github.com/aymensmida/Laravel-Bar-Code">https://github.com/aymensmida/Localization-Laravel-approach-1</a>
+                </h5>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+<script src="./Js/app.js"></script>
+
+</html>
