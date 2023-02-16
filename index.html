@@ -186,8 +186,15 @@
                         
                         */</span>
                         
-                        Route::get('BarCode', [App\Http\Controllers\BarCodeController::class, 'generate'])->name('generateBC');
-
+                        Route::get('/', function () {
+                            return view('welcome');
+                        });
+                        Route::get('{locale}', function ($locale) {
+                            app()->setLocale($locale);
+                            session()->put('locale', $locale);
+                        
+                            return redirect()->back();
+                        })->name('switch_language');
                         </pre>
                     <button class="btn-copy" data-toggle="tooltip" data-placement="top" title=""
                         onclick="CopyToClipboard('cmd-3')" data-original-title="Copy to Clipboard">
